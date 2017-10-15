@@ -1,6 +1,9 @@
+
+
 package com.i032114.tallertres;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -9,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -33,7 +38,7 @@ public class Posts extends AppCompatActivity {
     Button button;
     RecyclerView recyclerView;
     List<PostsModel> urlDetailsList;
-   PostsAdapter adapterUrl;
+    PostsAdapter adapterUrl;
     Toolbar toolbar;
 
 
@@ -42,8 +47,12 @@ public class Posts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
 
+        toolbar=(Toolbar)findViewById(R.id.id_toolbar);
+        shoeTollbar(getResources().getString(R.string.str_tb_p2));
+
+
         progressBar = (ProgressBar) findViewById(R.id.id_pb_item_post);
-        button = (Button) findViewById(R.id.id_btn_posts);
+
         recyclerView = (RecyclerView) findViewById(R.id.id_rv_item_psts);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -120,4 +129,52 @@ public class Posts extends AppCompatActivity {
             progressBar.setVisibility(View.GONE);
         }
     }
+
+
+
+
+    //////////////////////////////tootlbar//////////////////////////////////////
+
+
+
+    public  void  shoeTollbar(String title){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(title);
+
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.user_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        loadData(Integer.toString(getIntent().getExtras().getInt("albumId")));
+
+
+        return super.onOptionsItemSelected(item);
+    }
+    public void showpantallaDos(){
+        Intent a = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(a);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

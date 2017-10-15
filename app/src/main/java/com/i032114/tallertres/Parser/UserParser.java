@@ -23,7 +23,7 @@ public class UserParser {
 
             JSONObject item = jsonArray.getJSONObject(i);
 
-            JSONObject addressitem = item.getJSONObject("addresss");
+            JSONObject addressitem = item.getJSONObject("address");
             JSONObject namecompany = item.getJSONObject("company");
 
 

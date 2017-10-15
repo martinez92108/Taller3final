@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="233dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
@@ -20,32 +20,15 @@
             android:id="@+id/id_pb_item_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_gravity="center_horizontal"
             android:visibility="gone" />
-
-        <Button
-            android:id="@+id/id_btn_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-
-            android:text="Listar Imagenes" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/id_rv_item_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!--<ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <include layout="@layout/cardview"/>
-                </LinearLayout>
-            </ScrollView>-->
         </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>

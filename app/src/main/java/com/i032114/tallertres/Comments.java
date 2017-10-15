@@ -1,6 +1,8 @@
+
 package com.i032114.tallertres;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -8,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -30,6 +35,7 @@ public class Comments extends AppCompatActivity {
     RecyclerView recyclerView2;
     List<CommentsModel> photoModelList2;
     CommentsAdapter photoAdapter2;
+    Toolbar toolbar2;
 
 
 
@@ -38,8 +44,12 @@ public class Comments extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
 
+
+        toolbar2=(Toolbar)findViewById(R.id.id_toolbar);
+        shoeTollbar(getResources().getString(R.string.str_tb_p3));
+
         progressBar2 = (ProgressBar) findViewById(R.id.id_pb_item_comm);
-        button2 = (Button) findViewById(R.id.id_btn_comme);
+
         recyclerView2 = (RecyclerView) findViewById(R.id.id_rv_item_comm);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -67,8 +77,8 @@ public class Comments extends AppCompatActivity {
 
     public void loadData(String albumId){
         if (isOnLine()){
-            TaskPhoto taskPhoto = new TaskPhoto();
-            taskPhoto.execute("https://jsonplaceholder.typicode.com/comments?postId="+albumId);
+            TaskPhoto1 taskPhoto1 = new TaskPhoto1();
+            taskPhoto1.execute("https://jsonplaceholder.typicode.com/comments?postId="+albumId);
         }else {
             Toast.makeText(this, "Sin conexion", Toast.LENGTH_SHORT).show();
         }
@@ -79,7 +89,7 @@ public class Comments extends AppCompatActivity {
         recyclerView2.setAdapter(photoAdapter2);
     }
 
-    public class TaskPhoto extends AsyncTask<String, String, String> {
+    public class TaskPhoto1 extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -116,6 +126,34 @@ public class Comments extends AppCompatActivity {
 
             progressBar2.setVisibility(View.GONE);
         }
+    }
+
+
+
+
+    /////////////////////////////////////////toolbar//////////////////////////////
+
+
+
+    public  void  shoeTollbar(String title){
+        setSupportActionBar(toolbar2);
+        getSupportActionBar().setTitle(title);
+
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.user_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        loadData(Integer.toString(getIntent().getExtras().getInt("albumId")));
+
+
+        return super.onOptionsItemSelected(item);
+    }
+    public void showpantallaDos(){
+        Intent a = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(a);
+
     }
 
 

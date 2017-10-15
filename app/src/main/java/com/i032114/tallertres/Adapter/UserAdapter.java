@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.i032114.tallertres.Model.UserModels;
+import com.i032114.tallertres.Posts;
 import com.i032114.tallertres.R;
 import com.squareup.picasso.Picasso;
 
@@ -98,9 +99,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
         @Override
         public void onClick(View view) {
-            Context contextitem = view.getContext();
-            Intent inten = new Intent(contextitem,Comment.class);
-            contextitem.startActivity(inten);
+            Context contextitem1 = view.getContext();
+
+            Intent inten1= new Intent(contextitem1,Posts.class);
+            inten1.putExtra("albumId",Modellist.get(getLayoutPosition()).getId());
+            contextitem1.startActivity(inten1);
 
             //Toast.makeText(context,"click en el item",Toast.LENGTH_SHORT).show();
         }

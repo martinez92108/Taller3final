@@ -29,10 +29,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar1;
-    Button button1;
     RecyclerView recyclerView1;
-    List<UserModels> urlDetailsList1;
-    UserAdapter adapterUrl1;
+    List<UserModels> modelsList;
+    UserAdapter userAdapter;
 
     Toolbar toolbar1;
 
@@ -47,14 +46,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         progressBar1 = (ProgressBar) findViewById(R.id.id_pb_item_user);
-
-        button1 = (Button) findViewById(R.id.id_btn_user);
-
         recyclerView1 = (RecyclerView) findViewById(R.id.id_rv_item_user);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView1.setLayoutManager(linearLayoutManager);
+
         loadData();
 
     }
@@ -69,16 +66,19 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
-        showpantallaDos();
+       loadData();
 
 
         return super.onOptionsItemSelected(item);
     }
     public void showpantallaDos(){
-        Intent a = new Intent(getApplicationContext(),Posts.class);
+        Intent a = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(a);
 
     }
+
+
+
 
 
 
@@ -97,21 +97,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public void loadData(){
         if (isOnLine()){
-            TaskUrl taskUrl = new TaskUrl();
-            taskUrl.execute("https://jsonplaceholder.typicode.com/users");
+            TaskUrl1 taskUrl1 = new TaskUrl1();
+            taskUrl1.execute("https://jsonplaceholder.typicode.com/users");
         }else {
             Toast.makeText(this, "Sin conexion", Toast.LENGTH_SHORT).show();
         }
     }
 
     public void processData(){
-        adapterUrl1= new UserAdapter(urlDetailsList1, getApplicationContext());
-        recyclerView1.setAdapter(adapterUrl1);
+       userAdapter= new UserAdapter(modelsList, getApplicationContext());
+        recyclerView1.setAdapter(userAdapter);
     }
 
-    public class TaskUrl extends AsyncTask<String, String, String> {
+    public class TaskUrl1 extends AsyncTask<String, String, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             try {
-                urlDetailsList1 = UserParser.getData(s);
+               modelsList = UserParser.getData(s);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.i032114.tallertres.Comments;
 import com.i032114.tallertres.Model.PostsModel;
 import com.i032114.tallertres.R;
 
@@ -83,7 +84,8 @@ public class PostsAdapter  extends RecyclerView.Adapter<PostsAdapter.ViewHolder>
         @Override
         public void onClick(View view) {
             Context contextItem = view.getContext();
-            Intent intent = new Intent(context,Comment.class);
+            Intent intent = new Intent(context,Comments.class);
+            intent.putExtra("albumId",postsModelList.get(getLayoutPosition()).getId());
             contextItem.startActivity(intent);
         }
     }

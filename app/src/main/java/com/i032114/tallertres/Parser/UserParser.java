@@ -20,6 +20,7 @@ public class UserParser {
         List<UserModels> userModelsList = new ArrayList<>();
 
         for (int i = 0; i < jsonArray.length(); i++){
+
             JSONObject item = jsonArray.getJSONObject(i);
 
             JSONObject addressitem = item.getJSONObject("addresss");

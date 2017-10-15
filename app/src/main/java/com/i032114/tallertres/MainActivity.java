@@ -47,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         progressBar1 = (ProgressBar) findViewById(R.id.id_pb_item_user);
+
         button1 = (Button) findViewById(R.id.id_btn_user);
+
         recyclerView1 = (RecyclerView) findViewById(R.id.id_rv_item_user);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

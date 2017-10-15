@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TallerTres</string>
+    <string name="str_tb_p1">Usuarios</string>
+    <string name="str_tb_p2">Posts</string>
+    <string name="str_tb_p3">Comments</string>
+    <string name="str_tb_p4">principal</string>
+</resources>

@@ -45,7 +45,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         holder.postid.setText(Integer.toString(commentsModelList.get(position).getPostId()));
         holder.id1.setText(Integer.toString(commentsModelList.get(position).getId()));
         holder.emai.setText(commentsModelList.get(position).getEmail());
-        holder.body.setText(commentsModelList.get(position).getBody());
+        holder.body1.setText(commentsModelList.get(position).getBody());
 
 
 
@@ -59,7 +59,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         TextView postid;
         TextView id1;
         TextView emai;
-        TextView body;
+        TextView body1;
 
 
 
@@ -70,7 +70,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             postid=(TextView)item.findViewById(R.id.id_tv_item_postid);
             id1=(TextView)item.findViewById(R.id.id_tv_item_id2);
             emai=(TextView)item.findViewById(R.id.id_item_emailp);
-            body=(TextView)item.findViewById(R.id.id_item_bodyp);
+            body1=(TextView)item.findViewById(R.id.id_item_bodyp);
 
 
         }

@@ -47,7 +47,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position) {
         // Encargado de trabajar con el item.xml y sus componentes
         //String a;
-       holder.id.setText(Integer.toString(Modellist.get(position).getId()));
+       holder.id2.setText(Integer.toString(Modellist.get(position).getId()));
 
         holder.name.setText(Modellist.get(position).getName());
         holder.username.setText(Modellist.get(position).getUsername());
@@ -77,7 +77,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView id;
+        TextView id2;
         TextView name;
         TextView username;
         TextView address;
@@ -88,7 +88,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         public ViewHolder(View item) {
             super(item);
             item.setOnClickListener(this);
-            id=(TextView) item.findViewById(R.id.id_item_id);
+            id2=(TextView) item.findViewById(R.id.id_item_id);
             name=(TextView) item.findViewById(R.id.id_item_name);
             username=(TextView) item.findViewById(R.id.id_item_username);
             address=(TextView) item.findViewById(R.id.id_item_address);

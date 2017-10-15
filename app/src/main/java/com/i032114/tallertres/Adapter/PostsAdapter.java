@@ -72,7 +72,7 @@ public class PostsAdapter  extends RecyclerView.Adapter<PostsAdapter.ViewHolder>
 
             item.setOnClickListener(this);
             userid =(TextView)item.findViewById(R.id.id_tv_item_userid) ;
-            id =(TextView)item.findViewById(R.id.id_tv_item_id) ;
+            id =(TextView)item.findViewById(R.id.id_tv_item_id1) ;
             title =(TextView)item.findViewById(R.id.id_item_title) ;
             body =(TextView)item.findViewById(R.id.id_item_body) ;
 

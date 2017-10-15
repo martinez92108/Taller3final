@@ -43,7 +43,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         // Encargado de trabajar con el item.xml y sus componentes
         holder.postid.setText(Integer.toString(commentsModelList.get(position).getPostId()));
-        holder.id.setText(Integer.toString(commentsModelList.get(position).getId()));
+        holder.id1.setText(Integer.toString(commentsModelList.get(position).getId()));
         holder.emai.setText(commentsModelList.get(position).getEmail());
         holder.body.setText(commentsModelList.get(position).getBody());
 
@@ -57,7 +57,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView postid;
-        TextView id;
+        TextView id1;
         TextView emai;
         TextView body;
 
@@ -68,7 +68,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
 
             item.setOnClickListener(this);
             postid=(TextView)item.findViewById(R.id.id_tv_item_postid);
-            id=(TextView)item.findViewById(R.id.id_tv_item_id);
+            id1=(TextView)item.findViewById(R.id.id_tv_item_id2);
             emai=(TextView)item.findViewById(R.id.id_item_emailp);
             body=(TextView)item.findViewById(R.id.id_item_bodyp);
 
